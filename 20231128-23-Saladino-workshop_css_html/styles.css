@@ -1,0 +1,120 @@
+:root {
+    --blanco: #fff;
+}
+/* Inicializacion */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial;
+}
+/* Estilacion del header y navbar */
+header {
+    background: #333;
+    text-align: center;
+    padding: 1em;
+}
+header nav .links ul {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+header nav .links ul li {
+    list-style: none;
+}
+header nav .links ul li a {
+    text-decoration: none;
+    color: var(--blanco);
+    transition: all .3s;
+}
+header nav .links ul li a:hover {
+    color: #ffd700;
+}
+header nav .titleHeader h1 {
+    color: var(--blanco);
+    margin-bottom: 10px;
+    font-size: 2em;
+}
+/* Estilacion del main general */
+main {
+    padding: 20px;
+    display: flex;
+}
+main .section1 {
+    width: 70%;
+}
+main .aside1 {
+    width: 30%;
+    background: #f4f4f4;
+    padding: 10px;
+}
+/* Estilacion del section */
+main .section1 .intoSection .notice{
+    border: 1px solid #a2a2a2b0;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin-bottom: 20px;
+}
+main .section1 .intoSection .notice h3 {
+    color: #333;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 1em;
+}
+main .section1 .intoSection .notice h2 {
+    color: #ff0000;
+    font-size: 2em;
+}
+main .section1 .intoSection .notice .desc {
+    font-style: italic;
+}
+main .section1 .intoSection .notice .detailContainer table thead tr td {
+    font-size: 1em;
+    text-align: center;
+    font-weight: bold;
+}
+/* Estilacion del aside */
+main .aside1 .intoAside{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+main .aside1 .intoAside .titleContainer h3{
+    margin-top: 1em;
+    font-size: 1.5em;
+}
+main .aside1 .intoAside .linksAside ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+/* Estilacion del footer */
+footer {
+    background: #001f3f;
+    text-align: center;
+    padding: 1em;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+footer p {
+    color: var(--blanco);
+}
+
+/* Pequeña adaptacion a mobile */
+@media (max-width:720px){
+    main {
+        display: block;
+        margin-bottom: 5em;
+    }
+    main .section1 {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    main .aside1 {
+        width: 100%;
+    }
+}

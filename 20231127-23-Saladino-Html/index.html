@@ -1,0 +1,165 @@
+<!-- Lenguaje de marcado de hipertexto -->
+<!-- No es un idioma de programacion, es un lenguaje de etiquetas -->
+<!-- La estructura de html se divide en cabecera y cuerpo -->
+<!-- key:value -- key = value -- nombreAtributo="" -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Charset es para permitir ciertos caracteres -->
+    <meta charset="UTF-8">
+    <!-- El content es para que el ancho se ajuste al dispositivo y la escala sea 1 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titulo de la pagina</title>
+</head>
+
+<body>
+    <!-- Salto de linea --> <br>
+    <!-- Parrafo --> <p>Soy estudiante de ingenieria informatica en la Universidad Nacional de La Matanza</p>
+    <!-- Parrafo --> <p>Me llamo Agustin Saladino, mi email es agussala2003@gmail.com</p>
+    <!-- A diferencia del parrafo, aparece en linea y no en bloque --><span></span>
+    <!-- Se recomienda usar solo 1 h1 por pagina -->
+    <!-- Titulos --> <h1></h1><h2></h2><h3></h3><h4></h4><h5></h5><h6></h6>
+    <h1>El revelante secreto de los programadores</h1>
+    <h2>Noticias politicas</h2>
+    <h3>El nuevo gobierno</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia quia provident atque assumenda repellendus? Tempore alias cumque tempora at. Exercitationem reiciendis assumenda nesciunt rerum voluptas blanditiis, libero architecto nisi delectus?</p>
+    <h2>Noticias deportivas</h2>
+    <h3>El gol de Garnacho</h3>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis, ut obcaecati quis laudantium nulla quasi quae soluta exercitationem fuga eum officia voluptates officiis quidem aut nesciunt expedita ducimus recusandae sit?</p>
+    <!-- Etiqueta de enfasis --><em>Cursiva</em><strong>Negrita</strong>
+    <p><strong>Palabra</strong>:<em>Definicion</em></p>
+    <p><strong>Palabra</strong>:<em>Definicion</em></p>
+    <p><strong>Palabra</strong>:<em>Definicion</em></p>
+    <!-- Etiqueta de hipervinculo -->
+    <a href="./pagina2.html">Dirigete a la pagina 2</a>
+    <a href="./pagina3.html">Dirigete a la pagina 3</a>
+    <!-- Una URL absoluta muestra toda la ruta de la URL -->
+    <!-- Una URL relativa se prescinden de alguna partes para hacerla mas breve -->
+    <!-- Listas -->
+    <!-- Ordenadas --> <ol></ol>
+    <!-- No ordenadas --> <ul></ul>
+    <!-- Dentro llevan la etiqueta li, es lo unico que deben llevar --> <ol><li></li></ol> <ul><li></li></ul>
+    <!-- Linea horizontal --> <hr>
+    <ul>
+        <li>Javascript</li>
+        <li>SQL</li>
+        <li>Python</li>
+        <li>C</li>
+    </ul>
+    <ol>
+        <li>Javascript</li>
+        <li>Python</li>
+        <li>SQL</li>
+        <li>C</li>
+    </ol>
+    <!-- Etiqueta para insertar una imagen --> <img src="https://media.istockphoto.com/id/1324283285/es/foto/ciervos-mulos-de-las-monta%C3%B1as-rocosas-vadeando-en-el-lago-al-atardecer.jpg?s=612x612&w=0&k=20&c=Lv8KwJTep66Dt4mwYphQHQBJkzlVTeO28ixb5h6fa4s=" alt="Descripcion de la imagen">
+    <img src="playa.jfif" alt="Imagen de playa">
+    <!-- Tablas -->
+    <hr>
+    <table>
+        <!-- Para crear cada fila --> <tr></tr>
+        <!-- Para crear cada columna --> <td></td>
+    </table>
+    <table border="1">
+        <thead>
+            <tr>
+                <td>Empleado</td>
+                <td>Sueldo Bruto</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Juan Rodriguez</td>
+                <td>2000USD</td>
+            </tr>
+            <tr>
+                <td>Francisco Langa</td>
+                <td>1000USD</td>
+            </tr>
+            <tr>
+                <td>Miguel Fernandez</td>
+                <td>1200USD</td>
+            </tr>
+            <tr>
+                <td>Elon Musk</td>
+                <td>100000USD</td>
+            </tr>
+            <tr>
+                <td colspan="2">7000</td>
+            </tr>
+        </tbody>
+        <!-- <tfoot>
+            <tr>
+                <td>Promedio</td>
+                <td>8,4</td>
+            </tr>
+        </tfoot> -->
+    </table>
+    <br>
+    <!-- Formularios -->
+    <!-- Permite la interaccion de mi sitio con un usuario que esta interactuando -->
+    <!-- El metodo GET funciona mas para busqueda, el metodo POST sirve para enviar informacion, archivos, cosas que requieran seguridad... -->
+    <form action="datos.php" method="get">
+        <!-- Elementos del formulario -->
+        <input type="text" placeholder="Ingrese su nombre" name="nombre" id="">
+        <br>
+        <input type="password" placeholder="Ingrese su password" name="password" id="">
+        <br>
+        <!-- Cuando hay varias opciones se puede usar el checkbox -->
+        <!-- Si hay dos checkbox con el mismo name se va a enviar el ultimo -->
+        <input type="checkbox" name="checkbox" id="" checked> Estoy checkeado
+        <br>
+        <!-- El radiobutton es para seleccionar uno solo -->
+        <input type="radio" name="pais" id="">Argentina
+        <br>
+        <input type="radio" name="pais">Brazil
+        <br>
+        <input type="file" name="" id="">
+        <br>
+        <input type="number" max="10" name="" id="" step="2">
+        <br>
+        <select name="" id="" multiple>
+            <option value="">DDL</option>
+            <option value="">LIMON</option>
+        </select>
+        <br>
+        <br>
+        <select name="" id="">
+            <option value="">DDL</option>
+            <option value="">LIMON</option>
+        </select>
+        <br>
+        <button type="submit">Enviar datos</button>
+    </form>
+
+    <h3>Rellena tu CV</h3>
+    <form action="php/insertar_cv.php" method="post">
+    <label for="nombre">Nombre</label>
+    <input type="text" name="nombre" placeholder="Ingrese su nombre" maxlength="30">
+    <br>
+    <label for="apellido">Apellido</label>
+    <input type="text" name="apellido" placeholder="Ingrese su apellido" maxlength="80">
+    <br>
+    <label for="pass">Contraseña</label>
+    <input type="password" name="pass" placeholder="Ingrese su Contraseña" maxlength="10">
+    <br>
+    <label for="DNI">DNI</label>
+    <input type="number" name="DNI" placeholder="Ingrese su DNI" maxlength="10">
+    <br>
+    <label for="sexo">Sexo</label>
+    <br>
+    <input type="radio" name="sexo" id="">Hombre
+    <br>
+    <input type="radio" name="sexo" id="">Mujer
+    <br>
+    <label for="foto">Incluir mi foto</label>
+    <input type="text" name="foto" id="">
+    <input type="file" name="foto" id="" value="Enviar">
+    <br>
+    <input type="checkbox" name="" id="" checked>Suscribirme al boletin de novedades
+    <br>
+    <button type="submit">Guardar cambios</button>
+    </form>
+</body>
+</html>

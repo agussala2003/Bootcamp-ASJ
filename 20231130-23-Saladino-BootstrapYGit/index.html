@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap y git</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <!-- Siempre tiene que haber un container principal -->
+    <div class="container">
+        <header class="mt-2">
+            <div class="row mx-1 d-flex justify-content-center">
+                <div class="col-auto col-md-8 mb-3 mb-md-0">
+                    <div class="row d-flex align-items-center">
+                        <div class="col-3"><p class="m-0">30 nov 2023</p></div>
+                        <div class="col-3 d-none d-md-block"><p class="m-0">Actualizado:14:56</p></div>
+                        <div class="col-3">
+                            <div class="dropdown">
+                                <a class="btn dropdown-toggle border-0 bg-ligt" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                  America - Argentina
+                                </a>
+                              
+                                <ul class="dropdown-menu">
+                                  <li><a class="dropdown-item" href="#">America - Chile</a></li>
+                                  <li><a class="dropdown-item" href="#">America - Brasil</a></li>
+                                  <li><a class="dropdown-item" href="#">America - Estados Unidos</a></li>
+                                </ul>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-auto col-md-4">
+                    <div class="row d-flex justify-content-end">
+                        <div class="col-auto">
+                            <a class="btn py-1 btn-primary" href="#">Iniciar Sesion</a>
+                        </div>
+                        <div class="col-auto">
+                            <a class="btn py-1 btn-outline-danger " href="#">Registrarse</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar navbar-expand-lg mt-4">
+                <div class="container-fluid">
+                  <a class="display-6 text-decoration-none text-dark" href="#">EL PAIS</a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarScroll">
+                    <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Economia</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Politica</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Deportes</a>
+                      </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                      <input class="form-control me-2" type="search" placeholder="Noticias relacionadas" aria-label="Search">
+                      <button class="btn btn-outline-primary" type="submit"><i class='bx bx-search' ></i></button>
+                    </form>
+                  </div>
+                </div>
+              </nav>
+        </header>
+        <main class="mt-2 pt-3 border-3 border-top border-dark">
+            <div class="row mb-5 border-1 border-bottom border-dark">
+                <div class="col-auto col-lg-6">
+                    <div class="row">
+                        <div class="col-md-auto">
+                            <div class="card mb-3" style="max-width: 740px;">
+                                <div class="row g-0">
+                                  <div class="col-md-4">
+                                    <img src="https://plus.unsplash.com/premium_photo-1678566111481-8e275550b700?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dGVjbm9sb2dpYXxlbnwwfDF8MHx8fDA%3D" class="img-fluid rounded-start" alt="...">
+                                  </div>
+                                  <div class="col-md-8">
+                                    <div class="card-body">
+                                      <h5 class="card-title">La ultima actualizacion de HTML y sus nuevas innovaciones</h5>
+                                      <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident voluptatem sapiente hic at distinctio quam officiis expedita cumque, sit explicabo voluptate unde officia mollitia.</p>
+                                      <a href="#" class="btn btn-primary">Ver mas</a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                        </div>
+                        <div class="col-md-auto">
+                            <div class="card mb-3" style="max-width: 740px;">
+                                <div class="row g-0">
+                                  <div class="col-md-4">
+                                    <img src="https://images.unsplash.com/photo-1593642532781-03e79bf5bec2?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="img-fluid rounded-start" alt="...">
+                                  </div>
+                                  <div class="col-md-8">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Las mejores practicas de programacion</h5>
+                                      <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident voluptatem sapiente hic at distinctio quam officiis expedita cumque, sit explicabo voluptate unde officia mollitia.</p>
+                                      <a href="#" class="btn btn-primary">Ver mas</a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-auto col-lg-3 mb-2">
+                    <div class="card" style="max-width: 25rem;">
+                        <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8dGVjbm9sb2dpYXxlbnwwfDB8MHx8fDA%3D" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">La ultima macbook pro, vale la pena?</h5>
+                          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, officia. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem consectetur mollitia, numquam laudantium qui atque adipisci eveniet et fugiat vitae quas dolorum? Accusantium delectus, in beatae quod et recusandae doloribus. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem aliquid soluta minus nihil? Eaque, nesciunt excepture</p>
+                          <a href="#" class="btn btn-primary">Ver mas</a>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-auto col-lg-3 mb-2">
+                    <div class="card" style="max-width: 25rem;">
+                        <img src="https://plus.unsplash.com/premium_photo-1679079456083-9f288e224e96?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8dGVjbm9sb2dpYXxlbnwwfDB8MHx8fDA%3D" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Las mejores practicas para tener una buena jornada home office</h5>
+                          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, officia. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem consectetur mollitia, numquam laudantium qui atque adipisci eveniet et fugiat vitae quas dolorum? Accusantium delectus, in beatae quod et recusandae doloribus. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem aliquid soluta minus nihil? Eaque, nesciunt excepture</p>
+                          <a href="#" class="btn btn-primary">Ver mas</a>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+</html>

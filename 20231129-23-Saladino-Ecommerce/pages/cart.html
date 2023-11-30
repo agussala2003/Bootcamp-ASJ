@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The web shop with all the products that you need.">
+    <title>Boutique</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../css/normalize.css" type="text/css">
+    <link rel="stylesheet" href="../css/style.css" type="text/css">
+    <link rel="stylesheet" href="../css/cart.css" type="text/css">
+</head>
+<body>
+    <header>
+        <div class="links-container">
+            <h3>Boutique</h3>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a class="link-drop" href="#">Demo</a><i class='bx bxs-down-arrow'></i></li>
+                    <li><a class="link-drop" href="#">Blocks</a><i class='bx bxs-down-arrow'></i></li>
+                    <li><a href="#">Components</a></li>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="./cart.html">My Cart</a><p class="item-cart-count">2</p></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="filter-container">
+            <div class="search-container">
+                <form action="./produts.data" method="get">
+                    <input type="text" placeholder="Search..." name="searcher" id="">
+                </form>
+                <i class='bx bx-search-alt-2' ></i>
+            </div>
+            <div class="chooser-container">
+                <select name="price" id="price">
+                    <option value="ini">PUBLIC PRICELIST</option>
+                    <option value="low">10USD-25USD</option>
+                    <option value="med">25USD-50USD</option>
+                    <option value="high">50USD-75USD</option>
+                  </select>
+            </div>
+            <div class="pagination-container">
+                <div class="prev">
+                    <p>Prev</p>
+                </div>
+                <p class="active">1</p>
+                <p>2</p>
+                <p>3</p>
+                <p>4</p>
+                <div class="next">
+                    <p>Next</p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="full-item-cart-detail">
+            <div class="item-cart-detail">
+                <div class="img-container">
+                    <img src="../img/photo-1505740420928-5e560c06d30e.avif" alt="">
+                </div>
+                <div class="info-container">
+                    <div class="info-product-container">
+                        <h3>Headphones JBL 710 BT</h3>
+                        <p class="price">$ 120.00</p>
+                        <p>Cantidad: <span>1</span></p>
+                    </div>
+                    <div>
+                        <i class='bx bx-trash'></i>
+                    </div>
+                </div>
+            </div>
+            <div class="item-cart-detail">
+                <div class="img-container">
+                    <img src="../img/what makes a good product image.jpg" alt="">
+                </div>
+                <div class="info-container">
+                    <div class="info-product-container">
+                        <h3>Nikon Camera</h3>
+                        <p class="price">$ 220.00</p>
+                        <p>Cantidad: <span>1</span></p>
+                    </div>
+                    <div>
+                        <i class='bx bx-trash'></i>
+                    </div>
+                </div>
+            </div>
+            <div class="total-price-cart">
+                <p>Total: $ 320.00</p>
+                <button>Confirm Purchase</button>
+            </div>
+        </div>
+    </main>
+</body>
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+</html>

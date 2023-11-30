@@ -1,0 +1,14 @@
+/* Cascading Style Sheets */
+/* 
+selector {
+    propiedad: valor;
+}
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background: #0000003a;
+}
