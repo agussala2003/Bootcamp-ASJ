@@ -65,18 +65,20 @@ let alumnos = [
          }
          promedio = promedio / arrayA[i].notas.length
          if(estado == 'aprobado' && promedio >= 6) {
-          newArrayAlumnos.push(
-            nombreCompleto = `${arrayA[i].nombre} ${arrayA[i].apellido}`,
-            estado = 'aprobado',
-            promedioFinal = promedio
-          )
+          list = {
+            nombreCompleto:`${arrayA[i].nombre} ${arrayA[i].apellido}`,
+            estado:'aprobado',
+            promedioFinal:promedio
+          }
+          newArrayAlumnos.push(list)
          }
-         if(estado == 'desaprobado' && promedio < 6) {
-          newArrayAlumnos.push(
-            nombreCompleto = `${arrayA[i].nombre} ${arrayA[i].apellido}`,
-            estado = 'desaprobado',
-            promedioFinal = promedio
-          )
+         if(estado == 'desaprobado' && promedio < 6){
+          list = {
+            nombreCompleto:`${arrayA[i].nombre} ${arrayA[i].apellido}`,
+            estado:'desaprobado',
+            promedioFinal:promedio
+          }
+          newArrayAlumnos.push(list)
          }
       }
       return newArrayAlumnos
