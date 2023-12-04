@@ -5,19 +5,19 @@
 // Si el número es múltiplo de 3, deberá imprimir "Fizz" en vez del número.
 // Si es múltiplo de 5, deberá imprimir "Buzz".
 // Si es múltiplo de 3 y de 5 (a la misma vez), deberá imprimir "FizzBuzz".
-// let num = 1;
-// do {
-//     if(num%3 == 0 && num%5 == 0) {
-//         console.log(`${num} FizzBuzz`);
-//     }
-//     else if(num%3 == 0) {
-//         console.log(`${num} Fizz`);
-//     }
-//     else if(num%5 == 0) {
-//         console.log(`${num} Buzz`);
-//     }
-//     num++;
-// } while (num<101);
+let num = 1;
+do {
+    if(num%3 == 0 && num%5 == 0) {
+        console.log(`${num} FizzBuzz`);
+    }
+    else if(num%3 == 0) {
+        console.log(`${num} Fizz`);
+    }
+    else if(num%5 == 0) {
+        console.log(`${num} Buzz`);
+    }
+    num++;
+} while (num<101);
 
 // simular, un bar con una mesa, el cliente puede elegir productos de la carta. Puede pedir la cuenta, el total, puede elegir dejar propina, el mozo puede contar un chiste, en pesos, puede no pedir nada
 
