@@ -13,7 +13,7 @@ do {
     else if(num%3 == 0) {
         console.log(`${num} Fizz`);
     }
-    else if(num%5 == 0) {
+    else if(num%5 == 0) { // !num%5
         console.log(`${num} Buzz`);
     }
     num++;
@@ -113,3 +113,31 @@ if(total == subtotal && subtotal != 0) {
 else if (subtotal == 0) {
     alert('Hasta pronto! Nos vemos la proxima');
 }
+
+// Escalera
+function escalera(filas){
+    for (let i = 1;i<=filas;i++){
+        let asteriscos = '';
+        for (let j = 1; j<= i; j++){
+            asteriscos += '*'
+        }
+        console.log(asteriscos);
+    }
+    for (let i = filas;i>=1;i--){
+        let asteriscos = '';
+        for (let j = 1; j < i; j++){
+            asteriscos += '*'
+        }
+        console.log(asteriscos);
+    }
+}
+escalera(4);
+
+// Factorial
+function factorial(fact){
+    let tt = 1;
+    for (let i = 0;i<fact;i++)
+        tt *= fact-i;
+    console.log(tt)
+}
+factorial(10)
