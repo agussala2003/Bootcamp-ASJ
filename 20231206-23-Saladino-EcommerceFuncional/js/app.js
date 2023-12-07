@@ -92,12 +92,12 @@ goProductsCart.addEventListener('click', () => {
         document.getElementById('product-container').className = 'row mb-4 g-3'
         document.getElementById('cart-container').className = "d-none"
         document.getElementById('purchase-container').className = "row justify-content-center mb-3 d-none"
-        document.getElementById('products-cart-container').innerHTML = ""
     },1000)
 })
 
 let arrCart = [];
-btnDetail.addEventListener('click', () => {
+btnDetail.addEventListener('click', (e) => {
+    e.preventDefault()
     btnDetail.innerText = "Its in your cart!"
     arrCart[btnDetail.name - 1] = productos.find(product => product.id == parseInt(btnDetail.name))
     console.log(arrCart)
@@ -116,7 +116,8 @@ cart.addEventListener('click',(e) => {
     document.getElementById('detail-container').className = "d-none"
     document.getElementById('product-container').className = 'row mb-4 g-3 d-none'
     document.getElementById('cart-container').className = "d-block"
-    let arrValid = actualProds.filter(el => el != null)
+    let arrValid = actualProds.filter(el => el != null);
+    ttFinal = 0;
     if(parseInt(counter.innerText)>0) {
         document.getElementById('products-cart-container').className = "d-block"
         document.getElementById('text-cart').className = "d-none"
@@ -166,3 +167,19 @@ document.getElementById('purchase-button').addEventListener ('click', () => {
     alert('Gracias por confiar en nosotros! Te esperamos la proxima');
     window.location.reload()
 })
+const dropers = document.getElementsByClassName('droper');
+for (let i = 0; i < dropers.length; i++) {
+    dropers[i].addEventListener('click', (e) => {
+        e.preventDefault()
+        let actualProds = JSON.parse(localStorage.getItem('miProducto'))
+        console.log(actualProds)
+        delete(actualProds[dropers[i].value-1])
+        localStorage.setItem('miProducto', JSON.stringify(actualProds))
+        let arrValid = actualProds.filter(el => el != null)
+        document.getElementById(`card-cart-${dropers[i].value}`).className = "row d-none";
+        document.querySelector('#cart-viewer p').innerHTML = arrValid.length
+        let priceInt = document.querySelector(`#card-cart-${adders[i].value} .price`)
+        ttFinal -= Number(priceInt.innerText)
+        document.getElementById('final-price').innerText = ttFinal.toFixed(2);
+    })
+}
