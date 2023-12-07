@@ -1,44 +1,44 @@
 const productos = [
     {
-        nombre: 'Producto 1',
-        img: 'https://dummyimage.com/600x400/000/fff&text=Product',
+        nombre: 'Auriculares Apple In-Ear',
+        img: './img/Product1.jpg',
         desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates vel soluta possimus voluptatum nihil, fugit minima eius quae laudantium facilis similique laborum dolorem vitae voluptas! Quisquam obcaecati voluptate dolore suscipit.',
         price: '199.99',
         id: 1
     },
     {
-        nombre: 'Producto 2',
-        img: 'https://dummyimage.com/600x400/000/fff&text=Product',
+        nombre: 'MacBook Pro Apple',
+        img: './img/Product2.jpg',
         desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates vel soluta possimus voluptatum nihil, fugit minima eius quae laudantium facilis similique laborum dolorem vitae voluptas! Quisquam obcaecati voluptate dolore suscipit.',
-        price: '199.99',
+        price: '799.99',
         id: 2
     },
     {
-        nombre: 'Producto 3',
-        img: 'https://dummyimage.com/600x400/000/fff&text=Product',
+        nombre: 'Auriculares JBL 710 BT',
+        img: './img/Product3.jpg',
         desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates vel soluta possimus voluptatum nihil, fugit minima eius quae laudantium facilis similique laborum dolorem vitae voluptas! Quisquam obcaecati voluptate dolore suscipit.',
-        price: '199.99',
+        price: '99.99',
         id: 3
     },
     {
-        nombre: 'Producto 4',
-        img: 'https://dummyimage.com/600x400/000/fff&text=Product',
+        nombre: 'AppleWatch Deluxe Edition',
+        img: './img/Product4.jpg',
         desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates vel soluta possimus voluptatum nihil, fugit minima eius quae laudantium facilis similique laborum dolorem vitae voluptas! Quisquam obcaecati voluptate dolore suscipit.',
-        price: '199.99',
+        price: '399.99',
         id: 4
     },
     {
-        nombre: 'Producto 5',
-        img: 'https://dummyimage.com/600x400/000/fff&text=Product',
+        nombre: 'Ipad Pro Gold',
+        img: './img/Product5.jpg',
         desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates vel soluta possimus voluptatum nihil, fugit minima eius quae laudantium facilis similique laborum dolorem vitae voluptas! Quisquam obcaecati voluptate dolore suscipit.',
-        price: '199.99',
+        price: '699.99',
         id: 5
     },
     {
-        nombre: 'Producto 6',
-        img: 'https://dummyimage.com/600x400/000/fff&text=Product',
+        nombre: 'PlayStation 5 White',
+        img: './img/Product6.jpg',
         desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates vel soluta possimus voluptatum nihil, fugit minima eius quae laudantium facilis similique laborum dolorem vitae voluptas! Quisquam obcaecati voluptate dolore suscipit.',
-        price: '199.99',
+        price: '999.99',
         id: 6
     },
 ]
@@ -74,7 +74,7 @@ arrNumbers.forEach(item => item.addEventListener("click",(e)=>{
         document.getElementById('img-detail').src = actualProdDetail.img
         document.getElementById('title-detail').innerText = actualProdDetail.nombre
         document.getElementById('desc-detail').innerText = actualProdDetail.desc
-        document.getElementById('price-detail').innerText = actualProdDetail.price
+        document.getElementById('price-detail').innerText = '$' + actualProdDetail.price
         btnDetail.setAttribute('name',actualProdDetail.id);
     },1000)
 }))
@@ -105,55 +105,64 @@ btnDetail.addEventListener('click', () => {
     let actualProds = JSON.parse(localStorage.getItem('miProducto'))
     console.log(actualProds)
     ttProd = 0;
-    for (let i = 0; i < actualProds.length; i++) {
-        console.log(actualProds[i])
-        isNaN(actualProds[i]) ? ttProd++ : ''
-    }
+    let arrValid = actualProds.filter(el => el != null)
+    ttProd = arrValid.length;
     counter.innerText = ttProd;
 })
-let cantProd = [1,1,1,1,1,1];
-cart.addEventListener('click',() => {
+let ttFinal = 0;
+cart.addEventListener('click',(e) => {
+    e.preventDefault()
     let actualProds = JSON.parse(localStorage.getItem('miProducto'))
     document.getElementById('detail-container').className = "d-none"
     document.getElementById('product-container').className = 'row mb-4 g-3 d-none'
     document.getElementById('cart-container').className = "d-block"
+    let arrValid = actualProds.filter(el => el != null)
     if(parseInt(counter.innerText)>0) {
         document.getElementById('products-cart-container').className = "d-block"
         document.getElementById('text-cart').className = "d-none"
         document.getElementById('purchase-container').className = "row justify-content-center d-flex mb-3"
-        let ttfinal = 0;
-        for (let i = 0; i < actualProds.length; i++) {
-            console.log(actualProds[i])
-            if(isNaN(actualProds[i])) {
-                document.getElementById('products-cart-container').innerHTML += `<div class="row">
-                <div class="card mb-3">
-                    <div class="row g-0">
-                      <div class="col-md-4">
-                        <img src="${actualProds[i].img}" class="img-fluid rounded-start" alt="...">
-                      </div>
-                      <div class="col-md-8">
-                        <div class="card-body">
-                          <h5 class="card-title">${actualProds[i].nombre}</h5>
-                          <p class="card-text">${actualProds[i].desc}</p>
-                          <p>$${actualProds[i].price}</p>
-                          <div class="adder d-flex align-items-center">
-                            <button onClick="${cantProd[i]++}" class="btn btn-primary">+</button>
-                            <p class="m-0 px-3">${cantProd[i]}</p>
-                            <button onClick="${cantProd[i] > 1 ? cantProd-- : ''}" class="btn btn-primary">-</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-            </div>`
-            if(parseInt(actualProds[i].price) > 0) {
-                ttfinal = (parseInt(actualProds[i].price)*parseInt(cantProd[i]));
-                document.getElementById('final-price').innerText = ttfinal;
+        console.log(actualProds)
+        console.log(arrValid)
+        for (let i = 0; i < arrValid.length; i++) {
+            if (document.getElementById(`card-cart-${arrValid[i].id}`).className != "row d-block") {
+                document.getElementById(`card-cart-${arrValid[i].id}`).className = "row d-block"
             }
-            }
+            ttFinal += Number(arrValid[i].price)
         }
     }
-    else {
-
-    }
+    console.log(ttFinal);
+    document.getElementById('final-price').innerText = ttFinal
+})
+const arrTotalProducts = [1,1,1,1,1,1]
+const adders = document.getElementsByClassName('adder');
+const lessers = document.getElementsByClassName('lesser');
+console.log(adders);
+console.log(lessers);
+for (let i = 0; i < adders.length; i++) {
+    adders[i].addEventListener('click', (e) => {
+        e.preventDefault()
+        document.querySelector(`#card-cart-${adders[i].value} .btn-container p`).innerText = ++arrTotalProducts[i];
+        let priceInt = document.querySelector(`#card-cart-${adders[i].value} .price`)
+        console.log(priceInt)
+        console.log(Number(priceInt.innerText))
+        ttFinal += Number(priceInt.innerText)
+        document.getElementById('final-price').innerText = ttFinal.toFixed(2)
+    })
+}
+for (let i = 0; i < lessers.length; i++) {
+    lessers[i].addEventListener('click', (e) => {
+        e.preventDefault()
+       if(arrTotalProducts[i] > 1){
+        document.querySelector(`#card-cart-${adders[i].value} .btn-container p`).innerText = --arrTotalProducts[i];
+        let priceInt = document.querySelector(`#card-cart-${adders[i].value} .price`)
+        console.log(priceInt)
+        console.log(Number(priceInt.innerText))
+        ttFinal -= Number(priceInt.innerText)
+        document.getElementById('final-price').innerText = ttFinal.toFixed(2)
+       }
+    })
+}
+document.getElementById('purchase-button').addEventListener ('click', () => {
+    alert('Gracias por confiar en nosotros! Te esperamos la proxima');
+    window.location.reload()
 })
