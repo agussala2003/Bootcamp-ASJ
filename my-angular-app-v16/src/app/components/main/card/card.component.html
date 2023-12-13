@@ -1,12 +1,57 @@
-<div class="container mt-3">
-    <div class="d-flex flex-wrap justify-content-center align-items-center ">
-        <div *ngFor="let item of products" class="card p-0 mx-3 mb-4" style="width: 18rem;">
-            <img src="{{item.Url}}" class="card-img-top" alt="{{item.Name}}">
-            <div class="card-body">
-              <h5 class="card-title">{{item.Name}}</h5>
-              <p class="card-text">{{item.Desc}}</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+<ul class="mx-5 mt-4 nav nav-pills">
+    <li class="nav-item">
+      <a (click)="filterTech()" class="nav-link" href="#">Tech Products</a>
+    </li>
+    <li class="nav-item">
+      <a (click)="filterKitchen()" class="nav-link" href="#">Kitchen Products</a>
+    </li>
+</ul>
+
+<div *ngIf="!kitchenFlag && !techFlag">
+    <div class="container mt-3">
+        <div class="d-flex flex-wrap justify-content-center align-items-center ">
+            <div *ngFor="let item of products" class="card p-0 mx-3 mb-4" style="width: 18rem;">
+                <img src="{{item.Url}}" class="card-img-top img-fluid" alt="{{item.Name}}">
+                <div class="card-body">
+                  <h5 class="card-title">{{item.Name}}</h5>
+                  <p class="card-text">{{item.Desc}}</p>
+                  <a (click)="addProduct()" href="#" class="btn btn-primary">Agregar al carrito</a>
+                </div>
             </div>
         </div>
     </div>
+</div>
+
+<div *ngIf="kitchenFlag">
+    <div class="container mt-3">
+        <div class="d-flex flex-wrap justify-content-center align-items-center ">
+            <div *ngFor="let item of kitchenProducts" class="card p-0 mx-3 mb-4" style="width: 18rem;">
+                <img src="{{item.Url}}" class="card-img-top" alt="{{item.Name}}">
+                <div class="card-body">
+                  <h5 class="card-title">{{item.Name}}</h5>
+                  <p class="card-text">{{item.Desc}}</p>
+                  <a (click)="addProduct()" href="#" class="btn btn-primary">Agregar al carrito</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="techFlag">
+    <div class="container mt-3">
+        <div class="d-flex flex-wrap justify-content-center align-items-center ">
+            <div *ngFor="let item of techProducts" class="card p-0 mx-3 mb-4" style="width: 18rem;">
+                <img src="{{item.Url}}" class="card-img-top" alt="{{item.Name}}">
+                <div class="card-body">
+                  <h5 class="card-title">{{item.Name}}</h5>
+                  <p class="card-text">{{item.Desc}}</p>
+                  <a (click)="addProduct()" href="#" class="btn btn-primary">Agregar al carrito</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="addFlag" class="alert alert-success " role="alert">
+    Tu Producto fue agregado correctamente!
 </div>
