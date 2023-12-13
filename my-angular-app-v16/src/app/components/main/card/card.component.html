@@ -1,0 +1,12 @@
+<div class="container mt-3">
+    <div class="d-flex flex-wrap justify-content-center align-items-center ">
+        <div *ngFor="let item of products" class="card p-0 mx-3 mb-4" style="width: 18rem;">
+            <img src="{{item.Url}}" class="card-img-top" alt="{{item.Name}}">
+            <div class="card-body">
+              <h5 class="card-title">{{item.Name}}</h5>
+              <p class="card-text">{{item.Desc}}</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+</div>
