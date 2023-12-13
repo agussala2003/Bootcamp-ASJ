@@ -1,0 +1,50 @@
+<article class="bg-dark-subtle h-100">
+    <div class="container py-2 py-md-5">
+        <h1 class="text-uppercase fs-3 fs-md-1 text-center fw-semibold">Crea tu propia To do list</h1>
+        <div class="row justify-content-center px-5 mt-4">
+            <div class="col-12 col-md-4 mb-2 mb-md-0 ">
+              <input [(ngModel)]="binding" type="text" class="form-control" placeholder="Agrega una tarea">
+            </div>
+            <div class="col-12 col-md-4 mb-2 mb-md-0">
+                <input [(ngModel)]="fecha" type="date" class="form-control">
+              </div>
+            <div class="col-12 col-md-4 mb-2 mb-md-0">
+              <button (click)="addTask()" class="btn btn-dark w-100 ">Agregar tarea</button>
+            </div>
+        </div>
+        <div class="row justify-content-center px-5 mt-4">
+            <div class="col-12">
+                <select (click)="changeOption()" [(ngModel)]="optioning" class="form-select" aria-label="Default select example">
+                    <option value="1">Todas</option>
+                    <option value="2">Completadas</option>
+                    <option value="3">Eliminadas</option>
+                </select>
+            </div>
+        </div>
+        <div class="row px-5 flex-wrap">
+            <div *ngIf="opt == 1 ? 'd-block' : 'd-none' ">
+                <div *ngFor="let item of tareas;index as i" class="col-12">
+                    <div [ngClass]="notShow[i]" [ngClass]="showChecked[i] ? 'container bg-success-subtle mt-4 rounded-3 py-3' : 'container bg-light mt-4 rounded-3 py-3'">
+                        <div class="row d-flex justify-content-between align-items-center">
+                            <div class="col-12 col-md-4 mb-2">
+                                <h5 class="p-0 m-0 text-center text-md-start ">Tarea {{i + 1}}</h5>
+                            </div>
+                            <div class="col-12 col-md-4 mb-2">
+                                <h5 class="p-0 m-0 text-center">{{item.Fech}}</h5>
+                            </div>
+                            <div class="col-12 col-md-4 text-center text-md-end">
+                                <button (click)="removeTask(i)" class="btn btn-danger me-2">X</button>
+                                <button (click)="checkTask(i)" class="btn btn-success">✓</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <p class="p-0 m-0 fs-3 mt-3 text-center fw-semibold">{{item.Tarea}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>

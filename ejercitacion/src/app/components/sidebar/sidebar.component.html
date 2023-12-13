@@ -1,0 +1,14 @@
+<div class="bg-dark-subtle border-end border-1 border-black h-100">
+    <aside class="container py-4 ps-4 py-md-5">
+        <div class="d-flex">
+            <h3 class="text-uppercase fs-4 fw-semibold">Consulta nuestros proyectos</h3><p (click)="showProjects()" class="ps-3 fs-1 d-md-none"><fa-icon [icon]="faCircleDown"></fa-icon></p>
+        </div>
+        <div class="row">
+            <ul [ngClass]="flagDropdown ? 'd-none d-md-block' : '' ">
+                <li class="list-unstyled mt-2"><a class="text-decoration-none text-uppercase fs-5 text-black" href="#">To do list</a></li>
+                <li class="list-unstyled mt-2"><a class="text-decoration-none text-uppercase fs-5 text-black" href="#">Ecommerce</a></li>
+                <li class="list-unstyled mt-2"><a class="text-decoration-none text-uppercase fs-5 text-black" href="#">Color Game</a></li>
+            </ul>
+        </div>
+    </aside>
+</div>
