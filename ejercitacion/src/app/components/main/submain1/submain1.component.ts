@@ -7,39 +7,52 @@ import { Component } from '@angular/core';
 })
 export class Submain1Component {
   binding:string = '';
-  optioning:number = 1;
   opt:number = 0;
   fecha = '';
-  tareas: { Tarea: string, Fech: string }[] = [];
-  tareasDeleted: { Tarea: string, Fech: string }[] = [];
-  tareasChecked: { Tarea: string, Fech: string }[] = [];
+  tareas: { Tarea: string, Fech: string, State:number, Clase: string }[] = [];
+  tareasFilter: { Tarea: string, Fech: string, State:number, Clase: string }[] = [];
   notShow: string[] = [];
   showChecked: boolean[] = [];
   list = {}
   addTask() {
-    console.log(this.optioning)
     if (this.binding && this.fecha) {
       const task = {
         Tarea: this.binding,
-        Fech: this.fecha
+        Fech: this.fecha,
+        State: 1,
+        Clase: 'container bg-light mt-4 rounded-3 py-3'
       };
       this.tareas.push(task);
+      this.tareasFilter.push(task);
       this.binding = '';
       this.fecha = '';
     }
   }
   removeTask(i:number){
-    this.notShow[i] = 'd-none'
-    this.tareasDeleted.push(this.tareas[i])
-    console.log(this.tareasDeleted)
-    this.tareas.splice(i, 0)
+    this.tareas[i].State = 3
+    this.tareas[i].Clase = 'container bg-danger-subtle mt-4 rounded-3 py-3'
   }
   checkTask(i:number){
-    this.showChecked[i] = true;
-    this.tareasChecked.push(this.tareas[i])
+    this.tareas[i].State = 2
+    this.tareas[i].Clase = 'container bg-success-subtle mt-4 rounded-3 py-3'
   }
-  changeOption(){
-    console.log(this.optioning)
-    this.opt = this.optioning;
+  changeOption(i:number){
+    this.opt = i;
+    console.log(this.opt)
+    if(this.opt == 1){
+      this.tareas = this.tareasFilter
+      console.log(this.tareas)
+      console.log(this.tareasFilter)
+    }
+    else if(this.opt == 2){
+      this.tareas = this.tareasFilter.filter(item => item.State == 2)
+      console.log(this.tareas)
+      console.log(this.tareasFilter)
+    }
+    else if(this.opt == 3) {
+      this.tareas = this.tareasFilter.filter(item => item.State == 3)
+      console.log(this.tareas)
+      console.log(this.tareasFilter)
+    }
   }
 }
