@@ -5,4 +5,8 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+  sidebarFlag: boolean = true;
+  sidebarChanger() {
+    this.sidebarFlag = !this.sidebarFlag
+  }
 }

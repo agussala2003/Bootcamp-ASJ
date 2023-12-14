@@ -10,6 +10,7 @@ import { MainComponent } from './components/main/main.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { Submain1Component } from './components/main/submain1/submain1.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { Submain2Component } from './components/main/submain2/submain2.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     SidebarComponent,
     MainComponent,
     FooterComponent,
-    Submain1Component
+    Submain1Component,
+    Submain2Component
   ],
   imports: [
     BrowserModule,
