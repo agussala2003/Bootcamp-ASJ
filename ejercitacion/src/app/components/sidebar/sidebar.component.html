@@ -5,9 +5,9 @@
         </div>
         <div class="row">
             <ul [ngClass]="flagDropdown ? 'd-none d-md-block' : '' ">
-                <li class="list-unstyled mt-2"><a class="text-decoration-none text-uppercase fs-5 text-black" routerLink="todolist">To do list</a></li>
-                <li class="list-unstyled mt-2"><a class="text-decoration-none text-uppercase fs-5 text-black" routerLink="simpsonslist">The simpsons list</a></li>
-                <li class="list-unstyled mt-2"><a class="text-decoration-none text-uppercase fs-5 text-black" href="#">Color Game</a></li>
+                <li class="list-unstyled mt-2"><a [ngClass]="selectedpath('/to-do-list') ? 'fw-bold' : ''" class="text-decoration-none fs-5 text-black" routerLink="to-do-list">To Do List</a></li>
+                <li class="list-unstyled mt-2"><a [ngClass]="selectedpath('/simpsons-list') ? 'fw-bold' : ''" class="text-decoration-none fs-5 text-black" routerLink="simpsons-list">The Simpsons List</a></li>
+                <li class="list-unstyled mt-2"><a [ngClass]="selectedpath('/rick-morty/character-table') ? 'fw-bold' : ''" class="text-decoration-none fs-5 text-black" routerLink="/rick-morty/character-table">Rick And Morty API</a></li>
             </ul>
         </div>
     </aside>

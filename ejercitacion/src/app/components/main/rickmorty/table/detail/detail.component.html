@@ -1,0 +1,22 @@
+<div class="bg-dark-subtle h-100">
+    <div class="container p-5">
+        <div class="card mb-3" style="max-width: 50rem;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="{{personaje.image}}" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title"><strong>Nombre:</strong> {{personaje.name}}</h5>
+                  <p class="card-text mb-1"><strong>Creacion:</strong> {{personaje.created}}</p>
+                  <p class="card-text mb-1"><strong>Estado:</strong> {{personaje.status}}</p>
+                  <p class="card-text mb-1"><strong>Especie:</strong> {{personaje.species}}</p>
+                  <p class="card-text mb-1"><strong>Genero:</strong> {{personaje.gender}}</p>
+                  <p class="card-text mb-1"><strong>Ubicacion:</strong> {{personaje.location.name}}</p>
+                  <a class="btn btn-warning" routerLink="../../character-table">Volver atras</a>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+</div>

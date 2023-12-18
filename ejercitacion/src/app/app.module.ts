@@ -11,6 +11,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { Submain1Component } from './components/main/submain1/submain1.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { Submain2Component } from './components/main/submain2/submain2.component';
+import { TableComponent } from './components/main/rickmorty/table/table.component';
+import { DetailComponent } from './components/main/rickmorty/table/detail/detail.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,14 +23,17 @@ import { Submain2Component } from './components/main/submain2/submain2.component
     MainComponent,
     FooterComponent,
     Submain1Component,
-    Submain2Component
+    Submain2Component,
+    TableComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     FormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

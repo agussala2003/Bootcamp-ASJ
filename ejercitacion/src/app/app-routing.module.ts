@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { Submain1Component } from './components/main/submain1/submain1.component';
 import { Submain2Component } from './components/main/submain2/submain2.component';
 import { MainComponent } from './components/main/main.component';
+import { TableComponent } from './components/main/rickmorty/table/table.component';
+import { DetailComponent } from './components/main/rickmorty/table/detail/detail.component';
 
 //
 const routes: Routes = [
@@ -11,12 +13,25 @@ const routes: Routes = [
     component: MainComponent
   },
   {
-    path: 'todolist',
+    path: 'to-do-list',
     component: Submain1Component
   },
   {
-    path: 'simpsonslist',
+    path: 'simpsons-list',
     component: Submain2Component
+  },
+  {
+    path:'rick-morty',
+    children: [
+      {
+        path:'character-table',
+        component: TableComponent
+      },
+      {
+        path:'character-detail/:idCharacter',
+        component: DetailComponent
+      }
+    ]
   },
   // {
   //   path: 'products/:id',
