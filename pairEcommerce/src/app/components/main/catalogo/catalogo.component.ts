@@ -30,24 +30,8 @@ export class CatalogoComponent implements OnInit {
       }
     });
   }
+  handleImageError(index: number,urlReemplazo:string) {
+    // Puedes cambiar la URL por la de la imagen de reemplazo que desees
+    this.productos[index].images[0] = urlReemplazo;
+  }
 }
-
-// ngOnInit(): void {
-//   // Subscribe to route params changes
-//   this.route.params.subscribe(params => {
-//     this.idCat = +params['idCat']; // Convert to number
-//     console.log(this.idCat);
-
-//     if (!this.idCat) {
-//       this.catalogoService.getData().subscribe((data: any) => {
-//         console.log(data);
-//         this.productos = data;
-//       });
-//     } else {
-//       this.catalogoService.getDataCategory(this.idCat).subscribe((data: any) => {
-//         console.log(data);
-//         this.productos = data;
-//       });
-//     }
-//   });
-// }

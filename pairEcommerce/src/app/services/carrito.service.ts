@@ -1,28 +1,27 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CarritoService {
   cartProducts: any[] = [];
-  public getLocalStorage():any{
+  public getLocalStorage(): any {
     const storedCartData = localStorage.getItem('cart');
     if (storedCartData) {
       this.cartProducts = JSON.parse(storedCartData);
       return this.cartProducts;
     }
+    return [];
   }
-  public deleteCartProduct(id:number):any{
+  public deleteCartProduct(id: number): any {
     const storedCartData = localStorage.getItem('cart');
     if (storedCartData) {
       this.cartProducts = JSON.parse(storedCartData);
-      this.cartProducts = this.cartProducts.filter(item => item.id != id);
-      localStorage.setItem('cart',JSON.stringify(this.cartProducts));
+      this.cartProducts = this.cartProducts.filter((item) => item.id != id);
+      localStorage.setItem('cart', JSON.stringify(this.cartProducts));
     }
   }
-  public vaciarLocalStorage(){
-    localStorage.setItem('cart',JSON.stringify([]));
+  public vaciarLocalStorage() {
+    localStorage.setItem('cart', JSON.stringify([]));
   }
 }
