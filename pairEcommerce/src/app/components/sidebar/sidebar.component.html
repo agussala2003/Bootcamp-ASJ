@@ -23,10 +23,10 @@
             </div>
           </div>
         </a>
-        <button [disabled]="titulo === ''" [routerLink]="['/products/title/', titulo]" class="btn btn-primary"
+        <!-- <button [disabled]="titulo === ''" [routerLink]="['/products/title/', titulo]" class="btn btn-primary"
             >Filtrar por nombre</button
-          >
-        <a class="list-group-item list-group-item-action py-2 ripple"
+          > -->
+        <!-- <a class="list-group-item list-group-item-action py-2 ripple"
           ><span class="fw-semibold">Filtrar por precio</span>
           <div class="row">
             <div class="col-12 p-0">
@@ -39,10 +39,10 @@
               />
             </div>
           </div>
-        </a>
-        <button [disabled]="precio <= 0" [routerLink]="['/products/price/', precio]" class="btn btn-primary"
+        </a> -->
+        <!-- <button [disabled]="precio <= 0" [routerLink]="['/products/price/', precio]" class="btn btn-primary"
           >Filtrar por precio</button
-        >
+        > -->
           <a class="list-group-item list-group-item-action py-2 ripple"
           ><span class="fw-semibold">Filtrar por rango de precio</span>
           <div class="row">
@@ -67,15 +67,27 @@
               </div>
               
             </a>
-            <button [disabled]="(precioMin >= precioMax) || precioMin == null || precioMax == null" [routerLink]="['/products/rango/', precioMin+'-'+precioMax]" class="btn btn-primary"
-          >Filtrar por rango de precio</button>
+            <a class="list-group-item list-group-item-action py-2 ripple"
+            ><span class="fw-semibold">Filtrar por Categoria</span>
+            <div class="row">
+              <div class="col-12 p-0">
+                <select [(ngModel)]="categoria" class="form-select my-1" aria-label="Default select example">
+                  <option value="" selected>Selecciona Categoria</option>
+                  <option value="1">1 - Clothes</option>
+                  <option value="2">2 - Tech</option>
+                  <option value="3">3 - Furniture</option>
+                  <option value="4">4 - Shoes</option>
+                  <option value="5">5 - Miscellaneous</option>
+                </select>
+              </div>
+                </div>
+                
+              </a>
+            <button [disabled]="categoria === '' && ((precioMin >= precioMax) || precioMin == null ||  precioMax == null) && titulo === ''" (click)="crearUrl()" [routerLink]="['/products/filtro/', (categoria || null) + '-' + (titulo || null) + '-' + (precioMin || null) + '-' + (precioMax || null)]" class="btn btn-primary"
+          >Filtrar</button>
       </div>
     </div>
   </nav>
-  <!-- Sidebar -->
-
-  <!-- Navbar -->
-  <!-- Navbar -->
 </header>
 <!--Main Navigation-->
 
