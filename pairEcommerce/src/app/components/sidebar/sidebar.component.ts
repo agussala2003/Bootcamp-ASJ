@@ -9,4 +9,6 @@ export class SidebarComponent {
   titulo:string = '';
   precio:number = 0;
   filtrarRango:string = '';
+  precioMin:string = '';
+  precioMax:string = '';
 }

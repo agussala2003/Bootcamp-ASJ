@@ -33,8 +33,9 @@ export class CatalogoComponent implements OnInit {
     });
   }
   filterProducts (param:string, valor:string):void {
-    let min = '';
-    let max = '';
+    let arrValores = valor.split('-');
+    let min = arrValores[0];
+    let max = arrValores[1];
     if (param === "CATEGORIA") {
       this.catalogoService.getDataCategory(valor).subscribe((data: any) => {
         console.log(data)
@@ -55,22 +56,6 @@ export class CatalogoComponent implements OnInit {
       })
     }
     if(param === "RANGO") {
-      switch (valor){
-        case '1':
-        min = '1';
-        max = '99'
-        break;
-        case '2':
-        min = '100';
-        max = '499'
-        break;
-        case '3':
-        min = '500';
-        max = '999'
-        break;
-        default:
-        alert('No existe ese rango de precio');
-      }
       this.catalogoService.getDataPriceRange(min,max).subscribe((data:any) => {
         this.productos = data;
         this.category = "Filtracion por rango " + min + ' - ' + max;

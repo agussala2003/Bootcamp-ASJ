@@ -18,7 +18,7 @@
                 [(ngModel)]="titulo"
                 placeholder="Ingrese nombre"
                 type="text"
-                class="form-control"
+                class="form-control my-1"
               />
             </div>
           </div>
@@ -35,7 +35,7 @@
                 placeholder="Ingrese Precio"
                 type="number"
                 min="1"
-                class="form-control"
+                class="form-control my-1"
               />
             </div>
           </div>
@@ -43,21 +43,31 @@
         <button [disabled]="precio <= 0" [routerLink]="['/products/price/', precio]" class="btn btn-primary"
           >Filtrar por precio</button
         >
-        <a class="list-group-item list-group-item-action py-2 ripple"
+          <a class="list-group-item list-group-item-action py-2 ripple"
           ><span class="fw-semibold">Filtrar por rango de precio</span>
           <div class="row">
             <div class="col-12 p-0">
-              <select [(ngModel)]="filtrarRango" class="form-select" aria-label="Default select example">
-                  <option value="" selected>Seleccione Rangos de precio</option>
-                  <option value="1">$1 - $99</option>
-                  <option value="2">$100 - $499</option>
-                  <option value="3">$500 - $999</option>
-                </select>
+              <input
+                [(ngModel)]="precioMin"
+                placeholder="Precio Minimo"
+                type="number"
+                min="1"
+                class="form-control my-1"
+              />
+            </div>
+            <div class="col-12 p-0">
+              <input
+                [(ngModel)]="precioMax"
+                placeholder="Precio Maximo"
+                type="number"
+                min="1"
+                class="form-control my-1"
+              />
             </div>
               </div>
               
             </a>
-            <button [disabled]="filtrarRango === ''"  [routerLink]="['/products/rango/', filtrarRango]" class="btn btn-primary"
+            <button [disabled]="(precioMin >= precioMax) || precioMin == null || precioMax == null" [routerLink]="['/products/rango/', precioMin+'-'+precioMax]" class="btn btn-primary"
           >Filtrar por rango de precio</button>
       </div>
     </div>
