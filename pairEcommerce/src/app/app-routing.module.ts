@@ -19,6 +19,18 @@ const routes: Routes = [
       {
         path: 'categories/:idCat',
         component: CatalogoComponent
+      },
+      {
+        path: 'price/:precio',
+        component: CatalogoComponent
+      },
+      {
+        path: 'title/:titulo',
+        component: CatalogoComponent
+      },
+      {
+        path: 'rango/:rangoValor',
+        component: CatalogoComponent
       }
     ]
   },
