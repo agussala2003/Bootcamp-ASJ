@@ -5,6 +5,7 @@ import { Submain2Component } from './components/main/submain2/submain2.component
 import { MainComponent } from './components/main/main.component';
 import { TableComponent } from './components/main/rickmorty/table/table.component';
 import { DetailComponent } from './components/main/rickmorty/table/detail/detail.component';
+import { PipeComponent } from './components/main/pipe/pipe.component';
 
 //
 const routes: Routes = [
@@ -33,10 +34,10 @@ const routes: Routes = [
       }
     ]
   },
-  // {
-  //   path: 'products/:id',
-  //   component: Submain2Component //Aqui va el componente
-  // },
+  {
+    path: 'pipe',
+    component:PipeComponent
+  },
   {
     path: '**',
     pathMatch: 'full',

@@ -14,6 +14,8 @@ import { Submain2Component } from './components/main/submain2/submain2.component
 import { TableComponent } from './components/main/rickmorty/table/table.component';
 import { DetailComponent } from './components/main/rickmorty/table/detail/detail.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PrimosPipe } from './pipes/primos.pipe';
+import { PipeComponent } from './components/main/pipe/pipe.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { HttpClientModule } from '@angular/common/http';
     Submain1Component,
     Submain2Component,
     TableComponent,
-    DetailComponent
+    DetailComponent,
+    PrimosPipe,
+    PipeComponent
   ],
   imports: [
     BrowserModule,
