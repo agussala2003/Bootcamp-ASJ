@@ -41,3 +41,9 @@ FROM orders o INNER JOIN payment_methods m ON m.id = o.id_payment_method INNER J
 WHERE c.is_partner = 1
 GROUP BY m.payment_method, c.name,c.last_name
 HAVING COUNT(o.id) > 2
+
+-- Ordenes (numero,fecha,total) cuyo precio total sea mayor al precio promedio
+
+SELECT o.number_order AS Numero, o.date AS Fecha, o.total as Total
+FROM orders o
+WHERE o.total > (SELECT AVG(p.sale_price) FROM products p)
