@@ -2,71 +2,78 @@ import java.util.Scanner;
 
 public class PairProgramming {
 	public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        String input;
+		Scanner scanner = new Scanner(System.in);
+		String letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		String input;
 
-        String letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        char[] letras2 = letras.toCharArray(); // ['A', 'B', 'C', ...]
+		System.out.print("Ingrese secuencia: ");
+		input = scanner.nextLine();
 
-        System.out.println("Ingrese un texto:");
-        input = scanner.nextLine();
+		// Ejemplo: 222 2 7777 2 => CASA
+		decodificarMensaje(input, letras);
 
-        decodificar(input, letras2);
-
-        scanner.close();
+		scanner.close();
     }
 
-    private static void decodificar(String input, char[] letras2) {
-        String[] partes = input.split(" ");
-        String palabras = "";
+	private static void decodificarMensaje(String input, String letras) {
+		String[] secuencias = input.split(" ");
+		String mensaje = "";
+		char numero;
+		int cantidad;
 
-        for (String parte : partes) {
-            palabras += letra(parte.charAt(0), parte.length(), letras2);
-        }
+		for (String secuencia : secuencias) {
+			numero = secuencia.charAt(0);
+			cantidad = secuencia.length();
+			mensaje += decodificarCaracter(numero, cantidad, letras);
+		}
 
-        System.out.println("Texto decodificado: " + palabras);
-    }
+		System.out.print("Mensaje decodificado: " + mensaje);
+	}
 
-    private static char letra(char numero, int cantidad, char[] letras2) {
-        int inicio = 0;
-        
-        switch(numero) {
-            case '2':
-                inicio += cantidad - 1;
-                break;
-            case '3':
-                inicio = 3;
-                inicio += cantidad - 1;
-                break;
-            case '4':
-                inicio = 6;
-                inicio += cantidad - 1;
-                break;
-            case '5':
-                inicio = 9;
-                inicio += cantidad - 1;
-                break;
-            case '6':
-                inicio = 12;
-                inicio += cantidad - 1;
-                break;
-            case '7':
-                inicio = 15;
-                inicio += cantidad - 1;
-                break;
-            case '8':
-                inicio = 19;
-                inicio += cantidad - 1;
-                break;
-            case '9':
-                inicio = 22;
-                inicio += cantidad - 1;
-                break;
-            case '0':
-                return ' ';
-        }
-        
-        return letras2[inicio];
-    }
+	private static char decodificarCaracter(char numero, int cantidad, String letras) {
+		int indice = 0;
+
+		// Ajustar cantidad
+		if (((numero >= '2' && numero <= '6') || numero == '8') && cantidad > 3) {
+			cantidad = 1 + ((cantidad - 1) % 3);
+		} else if ((numero == '7' || numero == '9') && cantidad > 4) {
+			cantidad = 1 + ((cantidad - 1) % 4);
+		}
+
+		// Actualizar indice
+		switch (numero) {
+		case '2':
+			break;
+		case '3':
+			indice = 3;
+			break;
+		case '4':
+			indice = 6;
+			break;
+		case '5':
+			indice = 9;
+			break;
+		case '6':
+			indice = 12;
+			break;
+		case '7':
+			indice = 15;
+			break;
+		case '8':
+			indice = 19;
+			break;
+		case '9':
+			indice = 22;
+			break;
+		case '0':
+			return ' ';
+		default:
+			return numero;
+		}
+
+		indice += cantidad - 1;
+
+		return letras.charAt(indice);
+	}
 
 }
