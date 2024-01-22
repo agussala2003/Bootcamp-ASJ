@@ -1,0 +1,16 @@
+<article class="bg-dark-subtle h-100">
+    <div class="container py-2 py-md-5">
+        <div class="row justify-content-center px-5 mt-4">
+            <div class="col-12 mb-4 ">
+              <input [(ngModel)]="this.datosTarea.nombre" type="text" class="form-control" placeholder="Agrega una tarea">
+            </div>
+            <div class="col-12 mb-4">
+                <textarea placeholder="Ingrese descripcion"  rows="3" [(ngModel)]="this.datosTarea.descripcion" type="date" class="form-control"></textarea>
+              </div>
+            <div class="col-12 mb-4">
+              <button *ngIf="this.idTarea === undefined" (click)="addTarea()" class="btn btn-dark w-100 ">Agregar tarea</button>
+              <button *ngIf="this.idTarea !== undefined" (click)="updateTarea(idTarea)" class="btn btn-dark w-100 ">Actualizar tarea</button>
+            </div>
+        </div>
+    </div>
+</article>

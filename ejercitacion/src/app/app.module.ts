@@ -16,6 +16,7 @@ import { DetailComponent } from './components/main/rickmorty/table/detail/detail
 import { HttpClientModule } from '@angular/common/http';
 import { PrimosPipe } from './pipes/primos.pipe';
 import { PipeComponent } from './components/main/pipe/pipe.component';
+import { FormComponent } from './components/main/submain1/form/form.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { PipeComponent } from './components/main/pipe/pipe.component';
     TableComponent,
     DetailComponent,
     PrimosPipe,
-    PipeComponent
+    PipeComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,

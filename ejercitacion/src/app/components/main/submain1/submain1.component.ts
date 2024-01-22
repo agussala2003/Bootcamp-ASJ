@@ -1,58 +1,68 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { TodolistService } from '../../../services/todolist.service';
+import { catchError, switchMap, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-submain1',
   templateUrl: './submain1.component.html',
   styleUrl: './submain1.component.css'
 })
-export class Submain1Component {
+export class Submain1Component implements OnInit {
+  constructor(private serviceTareas: TodolistService) {}
   binding:string = '';
-  opt:number = 0;
   fecha = '';
-  tareas: { Tarea: string, Fech: string, State:number, Clase: string }[] = [];
-  tareasFilter: { Tarea: string, Fech: string, State:number, Clase: string }[] = [];
-  notShow: string[] = [];
-  showChecked: boolean[] = [];
-  list = {}
-  addTask() {
-    if (this.binding && this.fecha) {
-      const task = {
-        Tarea: this.binding,
-        Fech: this.fecha,
-        State: 1,
-        Clase: 'container bg-light mt-4 rounded-3 py-3'
-      };
-      this.tareas.push(task);
-      this.tareasFilter.push(task);
-      this.binding = '';
-      this.fecha = '';
-    }
+  tareas: { 
+    id: string,
+    nombre: string, 
+    descripcion: string, 
+    estado: number
+  }[] = [];
+
+  datosTarea = { 
+    nombre: '', 
+    descripcion: '', 
+    estado: 1
   }
-  removeTask(i:number){
-    this.tareas[i].State = 3
-    this.tareas[i].Clase = 'container bg-danger-subtle mt-4 rounded-3 py-3'
+
+  ngOnInit(): void {
+    this.refreshTareas();
   }
-  checkTask(i:number){
-    this.tareas[i].State = 2
-    this.tareas[i].Clase = 'container bg-success-subtle mt-4 rounded-3 py-3'
+
+  refreshTareas(){
+    this.serviceTareas.getTareas().subscribe((data) =>{
+      console.log("Showing all tasks" + data)
+      this.tareas = data.filter((item:any) => item.estado === 1);
+    })
   }
-  changeOption(i:number){
-    this.opt = i;
-    console.log(this.opt)
-    if(this.opt == 1){
-      this.tareas = this.tareasFilter
-      console.log(this.tareas)
-      console.log(this.tareasFilter)
-    }
-    else if(this.opt == 2){
-      this.tareas = this.tareasFilter.filter(item => item.State == 2)
-      console.log(this.tareas)
-      console.log(this.tareasFilter)
-    }
-    else if(this.opt == 3) {
-      this.tareas = this.tareasFilter.filter(item => item.State == 3)
-      console.log(this.tareas)
-      console.log(this.tareasFilter)
-    }
+
+  deleteTarea(id:string) {
+    this.serviceTareas.deleteTarea(id).subscribe((data) => {
+      console.log(data);
+      this.refreshTareas();
+    }) 
   }
+
+  changeTareaState(id: string, state: number) {
+    this.serviceTareas.getTareaById(id)
+      .pipe(
+        switchMap((data) => {
+          this.datosTarea = data;
+          this.datosTarea.estado = state;
+          console.log(this.datosTarea);
+          return this.serviceTareas.putTarea(id, this.datosTarea);
+        })
+      )
+      .subscribe(() => {
+        this.refreshTareas();
+      });
+  }
+  
+
+  filterTareas(state:number) {
+    this.serviceTareas.getTareas().subscribe((data) =>{
+      console.log("Showing filter tasks" + data)
+      this.tareas = data.filter((item:any) => item.estado === state);
+    })
+  }
+
 }
